@@ -17,14 +17,15 @@ signature: mslusarkiewicz
 and marked known with one fix queued. Read by tenant, form and what the reporters actually wrote,
 it holds three problems. Each now has its own ticket:
 
-| problem | ticket | reports |
-| --- | --- | --- |
-| Parser reads day-first dates month first | [megarepo#1](https://github.com/mslusarkiewicz/megarepo/issues/1) | 374 |
-| booking-v3 form hint says `MM/DD/YYYY`, form reads day first | [megarepo#2](https://github.com/mslusarkiewicz/megarepo/issues/2) | 33 |
-| Dates shift by a day: timezone handling | [megarepo#3](https://github.com/mslusarkiewicz/megarepo/issues/3) | 5 |
+| problem | ticket | reports | state |
+| --- | --- | --- | --- |
+| Parser reads day-first dates month first | [megarepo#1](https://github.com/mslusarkiewicz/megarepo/issues/1) | 374 | fixed: `fix(dates): parse dd/mm for eu locales` |
+| booking-v3 form hint says `MM/DD/YYYY`, form reads day first | [megarepo#2](https://github.com/mslusarkiewicz/megarepo/issues/2) | 33 | won't fix: booking-v3 form retired |
+| Dates shift by a day: timezone handling | [megarepo#3](https://github.com/mslusarkiewicz/megarepo/issues/3) | 5 | **open**: no fix |
 
 <Callout kind="warn">
-Not known, not one fix. The queued parser fix leaves the form hint and the timezone reports open.
+#4471 closed on 5 October with parser fixed and hint won't fix. The timezone reports were never
+part of either decision, and the parser fix does not touch them. megarepo#3 stays open.
 </Callout>
 
 ## What the table below counts

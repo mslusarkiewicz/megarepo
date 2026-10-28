@@ -19,12 +19,12 @@ footer{margin-top:3rem;color:var(--muted);font-size:.8rem;border-top:1px solid v
 <p class="meta"><span>owner <b>mslusarkiewicz</b></span><span class="status proposed">proposed</span><span>reviewed 2026-10-28 · 0 days ago</span></p></header>
 <main>
 <p><a href="/kb/incidents/4471">#4471</a> was merged on subject lines (<a href="/kb/decisions/0001-dedupe-by-subject">decision 0001</a>) and marked known with one fix queued. Read by tenant, form and what the reporters actually wrote, it holds three problems. Each now has its own ticket:</p>
-<table><thead><tr><th>problem</th><th>ticket</th><th>reports</th></tr></thead><tbody>
-<tr><td>Parser reads day-first dates month first</td><td><a href="https://github.com/mslusarkiewicz/megarepo/issues/1">megarepo#1</a></td><td>374</td></tr>
-<tr><td>booking-v3 form hint says <code>MM/DD/YYYY</code>, form reads day first</td><td><a href="https://github.com/mslusarkiewicz/megarepo/issues/2">megarepo#2</a></td><td>33</td></tr>
-<tr><td>Dates shift by a day: timezone handling</td><td><a href="https://github.com/mslusarkiewicz/megarepo/issues/3">megarepo#3</a></td><td>5</td></tr>
+<table><thead><tr><th>problem</th><th>ticket</th><th>reports</th><th>state</th></tr></thead><tbody>
+<tr><td>Parser reads day-first dates month first</td><td><a href="https://github.com/mslusarkiewicz/megarepo/issues/1">megarepo#1</a></td><td>374</td><td>fixed: <code>fix(dates): parse dd/mm for eu locales</code></td></tr>
+<tr><td>booking-v3 form hint says <code>MM/DD/YYYY</code>, form reads day first</td><td><a href="https://github.com/mslusarkiewicz/megarepo/issues/2">megarepo#2</a></td><td>33</td><td>won't fix: booking-v3 form retired</td></tr>
+<tr><td>Dates shift by a day: timezone handling</td><td><a href="https://github.com/mslusarkiewicz/megarepo/issues/3">megarepo#3</a></td><td>5</td><td><strong>open</strong>: no fix</td></tr>
 </tbody></table>
-<aside class="warn">Not known, not one fix. The queued parser fix leaves the form hint and the timezone reports open.</aside>
+<aside class="warn">#4471 closed on 5 October with parser fixed and hint won't fix. The timezone reports were never part of either decision, and the parser fix does not touch them. megarepo#3 stays open.</aside>
 <h2>What the table below counts</h2>
 <p class="sum"><strong>412</strong> reports merged into #4471 · <strong>2</strong> causes</p>
 <table><thead><tr><th>cause</th><th>reports</th><th>tagged as</th><th>tenants</th><th>seen</th><th></th></tr></thead><tbody>
