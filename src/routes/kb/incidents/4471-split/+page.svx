@@ -1,0 +1,51 @@
+---
+layout: runbook
+title: '#4471 split · three problems, not one'
+owner: mslusarkiewicz
+status: proposed
+reviewed: 2026-10-28
+signature: mslusarkiewicz
+---
+
+<script>
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+[#4471](/kb/incidents/4471) was merged on subject lines ([decision 0001](/kb/decisions/0001-dedupe-by-subject))
+and marked known with one fix queued. Read by tenant, form and what the reporters actually wrote,
+it holds three problems. Each now has its own ticket:
+
+| problem | ticket | reports |
+| --- | --- | --- |
+| Parser reads day-first dates month first | [megarepo#1](https://github.com/mslusarkiewicz/megarepo/issues/1) | 374 |
+| booking-v3 form hint says `MM/DD/YYYY`, form reads day first | [megarepo#2](https://github.com/mslusarkiewicz/megarepo/issues/2) | 33 |
+| Dates shift by a day: timezone handling | [megarepo#3](https://github.com/mslusarkiewicz/megarepo/issues/3) | 5 |
+
+<Callout kind="warn">
+Not known, not one fix. The queued parser fix leaves the form hint and the timezone reports open.
+</Callout>
+
+## What the table below counts
+
+<CauseTable ticket={4471} />
+
+`CauseTable` places a report by its tenant and channel, so it has only two causes. Its
+**parser 379 = 374 parser + 5 timezone**: the five reports in the desk's `oneDayMove` notes
+(R-41202, R-41209, R-41236, R-41344, R-41620) come from day-first tenants through app or email,
+so the table files them under `parser`, and its footnote counts them. Their text shows no day/month
+swap: a date moved by one day, or the same meeting landed on different days in Lisbon and Toronto.
+
+R-41236 is in that group as a **time problem, not a literal one-day shift**: "the invite arrived before
+I made the booking". No date in it moved by a day; the clock was wrong, which is the same timezone
+handling.
+
+Its **hint 33** is megarepo#2 as it stands.
+
+## Lessons
+
+- A subject line says how a report felt, not what caused it. Place reports by tenant, form and text.
+- Intake's tag is a guess: 23 parser reports came in tagged `hint`.
+
+<RenderStamp {signature} />
